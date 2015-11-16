@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+
+  root to: "customers#index"
+
+  resources :technicians do
+    resources :jobs
+  end
+
+  resources :customers do
+    resources :jobs
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
