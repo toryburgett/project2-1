@@ -12,15 +12,25 @@
     <div class="navbar-header">
       <a class="navbar-brand"  <%= link_to "Wonsik Jeong", technicians_path %> </a>
     </div>
-
+    <% if current_user %>
     <button type="button" class="btn btn-default btn-lg">
-      <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
-      <%= link_to "Log In", technicians_path %>
+      <span class= "glyphicon glyphicon-log-out" aria-hidden="true"></span>
+      <%= link_to 'Signout', destroy_user_session_path, :method => :delete  %>
     </button>
-  </nav>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-<%= yield %>
+    <% else %>
+      <span class="glyphicon glyphicon-thumbs-up">
+        <%= link_to 'Signup', new_user_registration_path, class: "btn btn-default btn-lg" %>
+        
+      <button type="button" class="btn btn-default btn-lg">
+        <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+        <%= link_to 'Login', new_user_session_path %>
+      </button>
 
-</body>
-</html>
+      <% end %>
+    </nav>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+
+  </body>
+  </html>

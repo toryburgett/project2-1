@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root to: "customers#index"
+  root to: "homes#index"
 
+  resources :homes
   resources :technicians do
     resources :jobs
   end

@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+
   def index
     @customer=Customer.find(params[:customer_id])
     @jobs=@customer.jobs.all
