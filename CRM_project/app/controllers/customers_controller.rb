@@ -31,7 +31,10 @@ class CustomersController < ApplicationController
 
   private
   def customer_params
-    params.require(:customer).permit(:first_name, :last_name, :phone_num, :phone_num2, :address)
+    params.require(:customer).permit(:first_name, :last_name, :phone_num, :phone_num2, :address,
+                                      jobs_attributes: [:technician, :brand, :model_num, :serial_num, :purchase_date, :scheduled_date,
+                                                                  :description, :created_at, :updated_at, :description, :note, :warranty, :status,
+                                                                  :performed])
   end
 
 end
